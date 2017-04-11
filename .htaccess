@@ -1,0 +1,23 @@
+RewriteEngine On
+RewriteRule ^([0-9a-zA-Z-_]+).html$ index.php?do=konu&link=$1
+RewriteRule ^([0-9a-zA-Z-_]+).html/([0-9]+)$ index.php?do=konu&link=$1&s=$2
+RewriteRule ^profil/([0-9a-zA-Z-_]+)(/?)$ index.php?do=profil&link=$1
+RewriteRule ^profil/([0-9a-zA-Z-_]+)/konular(/?)$ index.php?do=profil&link=$1&tip=konular
+RewriteRule ^kategori/([0-9a-zA-Z-_]+)(/?)$ index.php?do=kategori&link=$1
+RewriteRule ^kategori/([0-9a-zA-Z-_]+)/sayfa/([0-9]+)(/?)$ index.php?do=kategori&link=$1&s=$2
+RewriteRule ^etiket/([^/]*)(/?)$ index.php?do=etiket&link=$1
+RewriteRule ^etiket/([^/]*)/sayfa/([0-9]+)(/?)$ index.php?do=etiket&link=$1&s=$2
+RewriteRule ^s/([0-9a-zA-Z-_]+)(/?)$ index.php?s=$1
+RewriteRule ^arama/([^/]*)(/?)$ index.php?do=arama&kelime=$1
+RewriteRule ^arama/([^/]*)/sayfa/([0-9]+)(/?)$ index.php?do=arama&kelime=$1&s=$2
+
+
+RewriteRule ^([^/]*)/([^/]*)(/?)$ index.php?do=$2&lang=$1
+RewriteRule ^([^/]*)/([^/]*)/([0-9]+)(/?)$ index.php?do=$2&id=$3&lang=$1
+
+
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([0-9a-zA-Z-_]+)(/?)$ index.php?do=$1
